@@ -7,32 +7,58 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="./styles.css">
+        <!--
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        -->
+        <script src="./scripts.js"></script>
     </head> 
 
     <body>
-        <form class="form-style-7">
-            <ul>
-            <li>
-                <label for="name">Name</label>
-                <input type="text" name="name" maxlength="100">
-                <span>Enter your full name here</span>
-            </li>
-            <li>
-                <label for="email">Email</label>
-                <input type="email" name="email" maxlength="100">
-                <span>Enter a valid email address</span>
-            </li>
-            <li>
-                <label for="url">Website</label>
-                <input type="url" name="url" maxlength="100">
-                <span>Your website address (eg: http://www.google.com)</span>
-            </li>
-            <li>
-                <input type="submit" value="Send This" >
-            </li>
+
+        <div id="navigation">
+            <ul class="nav-list">
+                <li id="js-show-all">Show all Contacts</li>
+                <li id="js-add-new">Add New Contact</li>
             </ul>
+        </div>
+
+        <div id="contact-panel" class="panel">
+
+            <form id="contact" action="#" class="form-style-7">
+
+                <h1>Add a new contact</h1>
+
+                <div>
+                    <li>
+                        <label for="name">Name</label>
+                        <input type="text" name="name" maxlength="100" placeholder="John Doe">
+                        <span>Enter your full name here</span>
+                    </li>
+                    <li>
+                        <label for="email">Email</label>
+                        <input type="email" name="email" maxlength="100" placeholder="john@something.com">
+                        <span>Enter a valid email address</span>
+                    </li>
+                    <li>
+                        <label for="tel">Phone</label>
+                        <input type="tel" name="tel" maxlength="100" placeholder="1234567890">
+                        <span>Enter your telephone number</span>
+                    </li>
+                </div>
+
+                <div>
+                    <li>
+                        <input type="submit" value="Send This" >
+                    </li>
+                </div>
+
             </form>
+        </div>
+
+        <div id="show-panel" class="panel">
+            
+        </div>
+
     </body>
 
 </html>
-

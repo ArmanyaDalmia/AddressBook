@@ -8,7 +8,6 @@
       data: [
         //add data here
       ],
-      searchResults: [],
       addNewContact: function (name, tel, email) {
         this.data.push({
           name: name,
@@ -30,24 +29,6 @@
       log: function (data) {
         console.log(data);
         return this;
-      },
-      search: function (searchTerm) {
-        if (this.data.length) {
-          for (var i = 0; i < this.data.length; i++) {
-            if (this.data[i].name.toLowerCase() == searchTerm.toLowerCase()) {
-              console.error(this.data[i]);
-              this.searchResults.push(this.data[i]);
-            }
-          }
-  
-          return this.searchResults;
-        } else {
-          console.log("There are no results");
-        }
-        return this;
-      },
-      lastResults: function () {
-        return this.searchResults;
       }
     };
   
@@ -94,38 +75,6 @@
     event.preventDefault();
   });
   
-  var searchForm = document.getElementById("search");
-  searchForm.addEventListener("submit", function () {
-    var results;
-    if (results !== undefined) {
-      results = null;
-    }
-    if (!window.contactList) {
-      window.contactList = $ab();
-    } else {
-      results = contactList.search(searchForm.search.value);
-    }
-    document.getElementById("results").innerHTML = "";
-    if (results.length > 0) {
-      for (var i = 0; i < results.length; i++) {
-        document.getElementById("results").innerHTML +=
-          '<div class="contact-item">Name:' +
-          results[i].name +
-          "<br Phone:" +
-          results[i].tel +
-          "<br>Email:" +
-          results[i].email +
-          "</div><hr>";
-      }
-    } else {
-      document.getElementById("results").innerHTML +=
-        '<div class="contact-item">There are no results for this name</div><hr>';
-    }
-  
-    //do something with the results
-    event.preventDefault();
-  });
-  
   document.getElementById("js-show-all").addEventListener("click", function () {
     if (window.contactList) {
       //check if we already have a contact list
@@ -137,7 +86,7 @@
           document.getElementById("show-panel").innerHTML +=
             '<div class="contact-item">Name:' +
             contacts[i].name +
-            "<br Phone:" +
+            "<br>Phone:" +
             contacts[i].tel +
             "<br>Email:" +
             contacts[i].email +
@@ -149,20 +98,11 @@
       }
     }
     document.getElementById("show-panel").style.display = "block";
-  
-    document.getElementById("search-panel").style.display = "none";
-    document.getElementById("contact-panel").style.display = "none";
-  });
-  
-  document.getElementById("js-search").addEventListener("click", function () {
-    document.getElementById("show-panel").style.display = "none";
-    document.getElementById("search-panel").style.display = "block";
     document.getElementById("contact-panel").style.display = "none";
   });
   
   document.getElementById("js-add-new").addEventListener("click", function () {
     document.getElementById("show-panel").style.display = "none";
-    document.getElementById("search-panel").style.display = "none";
     document.getElementById("contact-panel").style.display = "block";
   });
   

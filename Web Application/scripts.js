@@ -94,7 +94,7 @@
         }
       } else {
         document.getElementById("show-panel").innerHTML +=
-          '<div class="contact-item">You have no contacts. Why not add  a few?</div><hr>';
+          '<center>You have no contacts. Why not add  a few?</center><hr>';
       }
     }
     document.getElementById("show-panel").style.display = "block";
